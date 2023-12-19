@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
+
+    <header class="flex row justify-between">
+        <p><a href="#" id="high-scores">View high scores</a></p>
+        <p>Time: <span id="time">120</span></p>
+    </header>
+    <main>
+        <section id="quiz-rules"class="quiz-rules flex column text-center align-center">
+            <h2>Coding Quiz Challenge</h2>
+            <div>
+                <p>Try to answer the following code-related questions within the time limit.</p>
+                <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            </div>
+           <button id="start-quiz" class="button" href="#">Start Quiz</button>
+            
+
+        </section>
+
+        <section id="quiz-question-container" class="flex column display-none"">
+            <h2 class="question" id="question">Question</h2>
+            <div class="answers-container">
+                <div class="flex row">
+                    <button class="answer" id="button-question1">
+                        1.
+                    </button>
+                    <p id="question1">Question Answer</p>
+                </div>
+                <div class="flex row">
+                    <button class="answer" id="button-question2">
+                        2.
+                    </button>
+                    <p id="question2">Question Answer</p>
+                </div>
+                <div class="flex row">
+                    <button class="answer" id="button-question3">
+                        3.
+                    </button>
+                    <p id="question3">Question Answer</p>
+                </div>
+                <div class="flex row">
+                    <button class="answer" id="button-question4">
+                        4.
+                    </button>
+                    <p id="question4">Question Answer</p>
+                </div>
+            </div> 
+           
+            
+
+  </section>
+
+        <section id="initials-container"="flex column initials-container" style="display: none;">
+            <h2>All Done!</h2>
+            <p>Your final score is <span id="score"></span></p>
+            <div class="flex row"><form action="">
+                <label for="initials">
+                    Enter initials
+                    <input type="text" id="initials" name="initials">
+                </label>
+            </form>
+        <button id="submit-button">Submit</button>
+        </div>
+            
+        </section>
+
+
+        <section id="highscores-container" class=" flex column" style="display: none;">
+
+            <h2>Highscores</h2>
+            <div id="highscores-box" class="flex column">
+                <p class="highscore">2. nsjn</p>
+            </div>
+            <div class="flex row"><button class="button" id="go-back">Go Back</button><button class="button" id="clear-scores">Clear Highscores</button></div>
+        </section>
+
+    </main>
+
+
+
+    <!-- <footer>
+        <p class="my_name">charles swayne 12/18/23</p>
+    </footer> -->
+
+
+
+
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
