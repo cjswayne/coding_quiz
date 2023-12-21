@@ -12,7 +12,35 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0;
+    position: relative;
+
 }
+
+.correct-answer{
+    position:absolute;
+    bottom:-90px;
+    margin:0 auto;
+    width:100%;
+    border-top:solid #DDD 2px;
+    content:"";
+}
+.answer-text{
+    padding-top:20px;
+    margin-top:0;
+}
+.highscoreText{
+padding-left:20px;
+}
+/* .correct-answer{
+    content:"incorrect!";
+    position:absolute;
+    bottom:-100px;
+    left:20px;
+    margin:0 auto;
+    width:100%;
+    font-size:40px;
+color:red;
+} */
 main{
     flex:1;
     position: relative;
@@ -68,40 +96,35 @@ button:hover{
     background-color: lightblue;
 }
 
-.display-none{
-display: none;
-}
-
-
 
 
 /* MAIN */
 
-.correct-answer{
+.hide{
+    transition: 0.3s;
+opacity: 0;
+    /* display:none; */
+}
+.unhide{
+    transition: 0.3s;
+    opacity: 1;
+    z-index: 100;
+    /* display:block; */
+}
+.quiz-section{
+    position:absolute;
+    top:0;
+    left: 0;
+    right: 0;
+}
+
+.correct{
 color: green;
 }
-.incorrect-answer{
+.incorrect{
 color: red;
 }
 
-.fade-out{
-    z-index: 3;
-    opacity: 0;
-    transition:opacity 1s ease-in-out;
-}
-
-
-.correct-answer, .incorrect-answer{
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-align-items: center;
-display: flex;
-justify-content: center;
-font-size:80px;
-}
 .answer{
     padding:10px 20px;
     margin:10px;
@@ -130,7 +153,6 @@ main h2{
 
 .initials-container{
     padding-bottom:20px;
-    border-bottom:solid 1px gray
 }
 
 .highscore{

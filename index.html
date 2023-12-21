@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Quiz Challenge
+    </title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
     <header class="flex row justify-between">
-        <p><a href="#" id="high-scores">View high scores</a></p>
-        <p>Time: <span id="time">120</span></p>
+        <p><a href="./highscores.html" id="high-scores">View high scores</a></p>
+        <p>Time: <span id="time">0</span></p>
     </header>
     <main>
-        <section id="quiz-rules"class="quiz-rules flex column text-center align-center">
+        <section id="quiz-rules"class="quiz-section quiz-rules flex column text-center align-center">
             <h2>Coding Quiz Challenge</h2>
             <div>
                 <p>Try to answer the following code-related questions within the time limit.</p>
@@ -26,7 +27,7 @@
 
         </section>
 
-        <section id="quiz-question-container" class="flex column display-none"">
+        <section id="quiz-question-container" class="quiz-section flex column display-none"">
             <h2 class="question" id="question">Question</h2>
             <div class="answers-container">
                 <div class="flex row">
@@ -56,10 +57,10 @@
             </div> 
            
             
-
+            <span class="correct-answer"><h2 class="answer-text"></h2></span>
   </section>
 
-        <section id="initials-container"="flex column initials-container" style="display: none;">
+        <section id="initials-container" class="quiz-section flex column initials-container" >
             <h2>All Done!</h2>
             <p>Your final score is <span id="score"></span></p>
             <div class="flex row"><form action="">
@@ -69,16 +70,17 @@
                 </label>
             </form>
         <button id="submit-button">Submit</button>
-        </div>
+        </div> 
             
         </section>
 
 
-        <section id="highscores-container" class=" flex column" style="display: none;">
+        <section id="highscores-container" class="quiz-section flex column" >
 
             <h2>Highscores</h2>
-            <div id="highscores-box" class="flex column">
-                <p class="highscore">2. nsjn</p>
+            <div  class="flex column">
+                <ol id="highscores-list">
+                </ol>
             </div>
             <div class="flex row"><button class="button" id="go-back">Go Back</button><button class="button" id="clear-scores">Clear Highscores</button></div>
         </section>
@@ -92,8 +94,7 @@
     </footer> -->
 
 
-
-
+<script src="assets/js/quiz_questions.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
