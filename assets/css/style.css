@@ -4,8 +4,22 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html, body{
-    /* height: 100%; */
     padding:5% 15%;
+}
+
+main h2{
+    margin-bottom: 0px;
+}
+
+
+main{
+    flex:1;
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+    color:black;
 }
 
 body{
@@ -13,49 +27,6 @@ body{
     flex-direction: column;
     margin: 0;
     position: relative;
-
-}
-
-.correct-answer{
-    position:absolute;
-    bottom:-90px;
-    margin:0 auto;
-    width:100%;
-    border-top:solid #DDD 2px;
-    content:"";
-}
-.answer-text{
-    padding-top:20px;
-    margin-top:0;
-}
-.highscoreText{
-padding-left:20px;
-}
-/* .correct-answer{
-    content:"incorrect!";
-    position:absolute;
-    bottom:-100px;
-    left:20px;
-    margin:0 auto;
-    width:100%;
-    font-size:40px;
-color:red;
-} */
-main{
-    flex:1;
-    position: relative;
-}
-header, footer{
-    /* background-color: black; */
-}
-
-header,footer, main{
-    /* padding:0 20%; */
-}
-
-a{
-    text-decoration: none;
-    color:black;
 }
 
 /* GENERAL */
@@ -83,27 +54,15 @@ a{
 .justify-between{
     justify-content: space-between;
 }
-button {
-
-    border: none;
-    background-color: blue;
-    color:white;
-    cursor: pointer;
-    width: fit-content;
-}
-
-button:hover{
-    background-color: lightblue;
-}
-
-
-
-/* MAIN */
 
 .hide{
     transition: 0.3s;
 opacity: 0;
     /* display:none; */
+}
+.display-none{
+    height: 0px;
+    visibility: hidden;
 }
 .unhide{
     transition: 0.3s;
@@ -111,6 +70,11 @@ opacity: 0;
     z-index: 100;
     /* display:block; */
 }
+
+
+
+/* MAIN */
+
 .quiz-section{
     position:absolute;
     top:0;
@@ -125,6 +89,49 @@ color: green;
 color: red;
 }
 
+
+.question{
+    padding:20px;
+}
+
+.initials-container{
+    padding-bottom:20px;
+}
+
+.button{
+    padding:5px;
+    border-radius:5px;
+    margin:0 10px 0 0;
+}
+button {
+
+    border: none;
+    background-color: blue;
+    color:white;
+    cursor: pointer;
+    width: fit-content;
+}
+
+button:hover{
+    background-color: lightblue;
+}
+
+.correct-answer{
+    position:absolute;
+    bottom:-90px;
+    margin:0 auto;
+    width:100%;
+    border-top:solid #DDD 2px;
+    content:"";
+}
+.answer-text{
+    padding-top:20px;
+    margin-top:0;
+}
+.answers-container{
+    padding:20px 40px 0px;
+}
+
 .answer{
     padding:10px 20px;
     margin:10px;
@@ -134,44 +141,4 @@ color: red;
     color:white;
     cursor: pointer;
     width: fit-content;
-}
-
-main h2{
-    margin-bottom: 0px;
-}
-
-
-.question{
-    padding:20px;
-}
-
-
-.answers-container{
-    padding:20px 40px 0px;
-}
-
-
-.initials-container{
-    padding-bottom:20px;
-}
-
-.highscore{
-    color:black;
-    background-color: lightblue;
-    padding:3px;
-}
-.button{
-    padding:5px;
-    border-radius:5px;
-    margin:0 10px 0 0;
-}
-
-
-
-
-/* FOOTER */
-
-.my_name{
-    color:lightgray;
-    font-size: .6em;
 }

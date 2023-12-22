@@ -10,6 +10,7 @@ Need to move where incorrect and correct show,
 - polish the file up for readibility
 - do normal submission checklist
 */
+const highscoreList = document.querySelector('#highscores-list');
 
 // function to add listeners to answer buttons
 function addAnswerListener(correct) {
@@ -158,6 +159,7 @@ function hideOtherCards(displayCard){
       displayCard.classList.remove('hide');
       displayCard.classList.add('unhide');
     } else {
+      console.log('sudn');
       item.classList.remove('unhide')
       item.classList.add('hide')
     }
@@ -165,43 +167,61 @@ function hideOtherCards(displayCard){
 }
 // function to log the highscore
 function logHighscore() {
-    const userInitials = document.querySelector("#initials").value;
-    // highscores.push({ score: score, initials: userInitials});
-    console.log(userInitials);
-    console.log(score);
-    // console.log(highscores);
+  const userInitials = document.querySelector("#initials").value;
+  console.log(userInitials);
+  // highscoresList
+let highscoresList = localStorage.getItem('highscoresList');
+let highscores =  JSON.parse(highscoresList) || [];
+
+let newScore = JSON.stringify({"initials":userInitials, "score":score});
+console.log(newScore);
+
+highscores.push(newScore);
+localStorage.setItem('highscoresList', JSON.stringify(highscores));
+
+
 }
 
 // function to display Highscore
-function displayHighscore(scoreText) {
-    nameText = document.querySelector("#initials").value;
+function displayHighscore() {
+  let highscoresList = localStorage.getItem('highscoresList');
 
-    if(scoreText != 0){
-    const highscoreList = document.querySelector('#highscores-list');
-    const li = document.createElement('li');
-    const nameSpan = document.createElement('span');
-    nameSpan.classList.add('nameText', 'highscoreText');
-    nameSpan.textContent = nameText;
-    li.appendChild(nameSpan);
+  if (highscoresList) {
+    let highscores = JSON.parse(highscoresList);
+    console.log(highscores);
 
-    const scoreSpan = document.createElement('span');
-    scoreSpan.classList.add('scoreText', 'highscoreText');
-    scoreSpan.textContent = scoreText;
-    li.appendChild(scoreSpan);
+    highscoreList.classList.add('unhide')
+highscoreList.classList.remove('hide')
 
-   highscoreList.appendChild(li);}
+    // Clear existing list items
+    highscoreList.innerHTML = '';
+
+    highscores.forEach((score) => {
+      score = JSON.parse(score);
+      console.log(score);
+      const li = document.createElement('li');
+      const nameSpan = document.createElement('span');
+      nameSpan.classList.add('nameText', 'highscoreText');
+      nameSpan.textContent = score.initials;
+      li.appendChild(nameSpan);
+
+      const scoreSpan = document.createElement('span');
+      scoreSpan.classList.add('scoreText', 'highscoreText');
+      scoreSpan.textContent = score.score;
+      li.appendChild(scoreSpan);
+
+      highscoreList.appendChild(li);
+    });
+  }
 }
+
 // function to clear highscores
-function clearHighscores(){
-
-}
-
 let questionNum = 0;
 const text = document.querySelector(".answer-text");
 let score;
 
 // Timer Variables 
-let startingTime = 120;
+let startingTime = 12;
 let timePenalty = 10;
 let timer;
 let timerToggle = true;
@@ -216,30 +236,28 @@ const quizRulesCard = document.querySelector(".quiz-rules");
 // Buttons
 const startButton = document.getElementById("start-quiz");
 const submitButton = document.getElementById("submit-button");
-const goBackButton = document.querySelector("#go-back");
 const highScoreButton = document.querySelector('#high-scores');
-const clearHighscoresButton = document.querySelector('#clear-scores');
+
 
 hideOtherCards(quizRulesCard);
 injectQuestion(quizQuestions[questionNum]);
 
 highScoreButton.addEventListener("click", function(){
-  hideOtherCards(highscoreCard);
+  window.location = '../../highscores.html'
+  // hideOtherCards(highscoreCard);
 });
-goBackButton.addEventListener("click", function () {
-  hideOtherCards(quizRulesCard);
-});
+
 submitButton.addEventListener("click", function () {
   logHighscore();
+  // hideOtherCards(highscoreCard);
+  window.location = '../../highscores.html'
   displayHighscore(totalTime);
-  hideOtherCards(highscoreCard);
-});
-clearHighscoresButton.addEventListener('click', function(){
-  clearHighscores();
+
 });
 startButton.addEventListener("click", function () {
   score = 0;
   restartQuiz();
+
 });
 
 /* 
