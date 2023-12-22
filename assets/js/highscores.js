@@ -40,7 +40,7 @@ clearHighscoresButton.addEventListener('click', function(){
   });
 
   goBackButton.addEventListener("click", function () {
-    window.location = '../../index.html';
+    window.location = '/coding_quiz/index.html';
   });
 
   
