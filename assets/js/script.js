@@ -184,7 +184,7 @@ highScoreButton.addEventListener("click", function () {
 
 submitButton.addEventListener("click", function () {
   logHighscore();
-  window.location = "../../highscores.html";
+  window.location = "highscores.html";
   displayHighscore(totalTime);
 });
 startButton.addEventListener("click", function () {
