@@ -1,3 +1,16 @@
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered successfully for this app specifically:', registration);
+      })
+      .catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
+
 let questionNum = 0;
 let score;
 
@@ -99,6 +112,52 @@ function resetQuestions() {
   injectQuestion(quizQuestions[0]);
 }
 
+
+
+// function setInterval(){
+
+// }
+
+// function fxnToRunInSetInterval(a, b){
+//   return a + b
+// }
+
+
+
+// function stopQuiz(a, b){
+//   //function to stop quiz
+//   //the stopQuiz() in the if(timeLeft) runs whatever is in this stopQuiz function(){} 
+//   console.log('Im doing stuff')
+//   console.log('[more stuff')
+//   console.log("quiz listen")
+
+//   return a + b
+// };
+
+
+// function beginTimer(){
+//   let timeCountElement = document.getElementById("timeCount"); 
+
+// timer = setInterval(function(){
+
+//   timeCountElement.textContent = "Time Left: " + timeLeft + " seconds";
+//   if(timeLeft === 0){
+//       timeCountElement.textContent = "Quiz Over"
+//       clearInterval(timer);
+//       var x = 1 + stopQuiz(a, b);
+//   }
+//   timeLeft--;
+
+// console.log(timeLeft)
+// }, 1000);
+// }; 
+
+// timer = setInterval(function(a, b){ return a + b }, 1000)
+
+
+// timer = setInterval(fxnToRunInSetInterval(a, b), 1000)
+
+
 //function to start timer
 function startTimer(timer) {
   timer = setInterval(function () {
@@ -110,7 +169,7 @@ function startTimer(timer) {
 
         endGame();
       }
-
++
       console.log(totalTime);
     } else if (
       questionNum != quizQuestions.length &&
