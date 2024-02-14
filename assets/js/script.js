@@ -179,12 +179,12 @@ hideOtherCards(quizRulesCard);
 injectQuestion(quizQuestions[questionNum]);
 
 highScoreButton.addEventListener("click", function () {
-  window.location = "../../highscores.html";
+  window.location = "/coding_quiz/highscores.html";
 });
 
 submitButton.addEventListener("click", function () {
   logHighscore();
-  window.location = "../../highscores.html";
+  window.location = "/coding_quiz/highscores.html";
   displayHighscore(totalTime);
 });
 startButton.addEventListener("click", function () {

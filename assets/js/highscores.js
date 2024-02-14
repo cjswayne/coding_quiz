@@ -38,13 +38,15 @@ clearHighscoresButton.addEventListener("click", function () {
   clearHighscores();
 });
 
-goBackButton.addEventListener("click", function () {
-  window.location = "../../index.html";
-});
+  goBackButton.addEventListener("click", function () {
+    window.location = '../../index.html';
+  });
 
-function clearHighscores() {
-  localStorage.clear();
-
-  highscoreList.classList.remove("unhide");
-  highscoreList.classList.add("display-none");
-}
+  
+function clearHighscores(){
+    localStorage.clear()
+    
+    highscoreList.classList.remove('unhide')
+    highscoreList.classList.add('display-none')
+    }
+    
